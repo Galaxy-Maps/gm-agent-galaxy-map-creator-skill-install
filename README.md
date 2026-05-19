@@ -13,6 +13,92 @@ Pick one — or install both side-by-side and decide per project.
 
 ---
 
+## How the skills fit together
+
+Both bundles run the same 7-phase pipeline. The orchestrator drives the workflow and hands off to one specialist skill per phase. The **Agent Teams** bundle adds team coordination *inside* phases 2–6: each skill spawns a sub-team of teammates (or competing reviewers) that collaborate via peer messaging, while the orchestrator runs in delegate mode and synthesizes results.
+
+```mermaid
+flowchart TB
+    user(["👤 User"]) -->|"/galaxy-map"| orch
+
+    orch["🎯 <b>Orchestrator</b><br/><code>gm-agent-01-orchestrator</code><br/><sub><i>or</i> <code>-01a-…with-agent-teams</code> for the team bundle</sub>"]
+
+    orch --> p1
+
+    p1["<b>Phase 1 · Intent</b> &nbsp;·&nbsp; <i>single session</i><br/><code>gm-agent-02-intent</code><br/><sub>6-canvas framework — identical in both bundles</sub>"]
+
+    p2["<b>Phase 2 · Curriculum</b><br/><code>gm-agent-03-curriculum</code> &nbsp;<i>or</i>&nbsp; <code>-03a-…with-agent-teams</code><br/><sub><b>non-team:</b> 3 alternatives → user picks one</sub><br/><sub><b>teams:</b> pick 1+ of 7 design teams (Dewey, Vygotsky, …) → consensus MAP per team</sub>"]
+
+    p3["<b>Phase 3 · Curriculum Critique</b> &nbsp;·&nbsp; <i>optional, repeatable</i><br/><code>gm-agent-04-curriculum-critiquer</code> &nbsp;<i>or</i>&nbsp; <code>-04a-…</code><br/><sub><b>non-team:</b> single critiquer, interactive approve / decline / modify</sub><br/><sub><b>teams:</b> 4 adversarial reviewers debate (Pedagogy · Learner · Scope · Devil's)</sub>"]
+
+    p4["<b>Phase 4 · Branching</b> &nbsp;·&nbsp; <i>optional</i><br/><code>gm-agent-05-branching</code> &nbsp;<i>or</i>&nbsp; <code>-05a-…</code><br/><sub><b>non-team:</b> solo generator</sub><br/><sub><b>teams:</b> 1 teammate per Star · peer-messaged de-duplication</sub>"]
+
+    p5["<b>Phase 5 · Missions</b><br/><code>gm-agent-06-mission-builder</code> &nbsp;<i>or</i>&nbsp; <code>-06a-…</code><br/><sub><b>non-team:</b> parallel sub-agent per Star</sub><br/><sub><b>teams:</b> 1 teammate per Star · peer-messaged terminology &amp; style</sub>"]
+
+    p6["<b>Phase 6 · Mission Critique</b> &nbsp;·&nbsp; <i>optional, repeatable</i><br/><code>gm-agent-07-mission-critiquer</code> &nbsp;<i>or</i>&nbsp; <code>-07a-…</code><br/><sub><b>non-team:</b> interactive, per mission</sub><br/><sub><b>teams:</b> 4 cross-referencing reviewers (Technical · Learning Design · Engagement · Audience)</sub>"]
+
+    p7["<b>Phase 7 · Finalize</b> &nbsp;·&nbsp; <i>single session</i><br/>orchestrator transforms repo → <code>GALAXY_MAP.json</code>"]
+
+    p1 --> p2 --> p3 --> p4 --> p5 --> p6 --> p7
+    p3 -. "refine" .-> p2
+    p6 -. "regenerate" .-> p5
+
+    p7 --> save(["📦 <code>saveGalaxyMap()</code> → <code>courseId</code>"])
+
+    classDef phase fill:#1f2937,stroke:#60a5fa,stroke-width:1px,color:#f3f4f6;
+    classDef lead  fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#f3f4f6;
+    classDef io    fill:#064e3b,stroke:#34d399,stroke-width:1px,color:#f3f4f6;
+    class p1,p2,p3,p4,p5,p6,p7 phase;
+    class orch lead;
+    class user,save io;
+```
+
+### What happens inside an Agent Team phase
+
+Phases 2, 3, 4, 5, and 6 of the `-with-agent-teams` bundle each follow the same internal pattern:
+
+```mermaid
+flowchart TB
+    lead["👤 <b>Team Lead</b><br/><sub>(skill in delegate mode)</sub>"]
+
+    subgraph team ["&nbsp;&nbsp;Agent Team — peer-messaged collaboration&nbsp;&nbsp;"]
+        direction LR
+        t1["Teammate 1"]
+        t2["Teammate 2"]
+        t3["Teammate 3"]
+        tn["Teammate N"]
+
+        t1 <-. "SendMessage" .-> t2
+        t2 <-. "SendMessage" .-> t3
+        t3 <-. "SendMessage" .-> tn
+    end
+
+    out[("📄 artifacts/")]
+
+    lead == "1 · TeamCreate + Task × N" ==> team
+    team == "2 · write outputs" ==> out
+    out -- "3 · synthesize + quality gates + git commit" --> lead
+
+    classDef lead fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#f3f4f6;
+    classDef mate fill:#1f2937,stroke:#60a5fa,color:#f3f4f6;
+    classDef art  fill:#064e3b,stroke:#34d399,color:#f3f4f6;
+    class lead lead;
+    class t1,t2,t3,tn mate;
+    class out art;
+```
+
+Team size and roles vary per phase:
+
+| Phase | Teammates | Role pattern |
+|---|---|---|
+| 2 · Curriculum | 4–5 theorists per team, 7 teams selectable | Each team produces ONE consensus MAP |
+| 3 · Curriculum Critique | 4 reviewers | Adversarial lenses debate via peer messaging |
+| 4 · Branching | 1 per Star (dynamic) | De-duplicate branch topics across stars |
+| 5 · Missions | 1 per Star (dynamic) | Align terminology, running examples, visual style |
+| 6 · Mission Critique | 4 reviewers | Cross-reference compound problems across missions |
+
+---
+
 ## Install — Non-team bundle
 
 **macOS / Linux / WSL**
