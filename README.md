@@ -1,4 +1,4 @@
-# Galaxy Maps — Skill Bundle Installer
+# Galaxy Maps - Map Generator using Skills
 
 One-step installers for [Galaxy Maps](https://galaxymaps.io) curriculum-creation stack using LLM Skills.
 
