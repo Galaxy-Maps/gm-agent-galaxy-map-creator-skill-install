@@ -21,25 +21,17 @@ Both bundles run the same 7-phase pipeline. The orchestrator drives the workflow
 flowchart TB
     user(["👤 User"]) -->|"/galaxy-map"| orch
 
-    orch["🎯 <b>Orchestrator</b><br/><code>gm-agent-01-orchestrator</code><br/><sub><i>or</i> <code>-01a-…with-agent-teams</code> for the team bundle</sub>"]
+    orch["🎯 <b>Orchestrator Skill</b><br/><sub>Coordinates the 7-phase workflow</sub>"]
 
-    orch --> p1
+    p1["<b>Intent Skill</b><br/><sub>Captures curriculum intent via the 6-canvas framework</sub>"]
+    p2["<b>Curriculum Skill</b><br/><sub>Generates curriculum structure — Stars &amp; Missions</sub>"]
+    p3["<b>Curriculum Critiquer Skill</b><br/><sub>Reviews curriculum structure quality</sub>"]
+    p4["<b>Branching Skill</b><br/><sub>Generates optional side-quest branches</sub>"]
+    p5["<b>Mission Builder Skill</b><br/><sub>Builds rich HTML lesson content per mission</sub>"]
+    p6["<b>Mission Critiquer Skill</b><br/><sub>Reviews mission content quality</sub>"]
+    p7["<b>Finalize</b><br/><sub>Orchestrator compiles the repo into <code>GALAXY_MAP.json</code></sub>"]
 
-    p1["<b>Phase 1 · Intent</b> &nbsp;·&nbsp; <i>single session</i><br/><code>gm-agent-02-intent</code><br/><sub>6-canvas framework — identical in both bundles</sub>"]
-
-    p2["<b>Phase 2 · Curriculum</b><br/><code>gm-agent-03-curriculum</code> &nbsp;<i>or</i>&nbsp; <code>-03a-…with-agent-teams</code><br/><sub><b>non-team:</b> 3 alternatives → user picks one</sub><br/><sub><b>teams:</b> pick 1+ of 7 design teams (Dewey, Vygotsky, …) → consensus MAP per team</sub>"]
-
-    p3["<b>Phase 3 · Curriculum Critique</b> &nbsp;·&nbsp; <i>optional, repeatable</i><br/><code>gm-agent-04-curriculum-critiquer</code> &nbsp;<i>or</i>&nbsp; <code>-04a-…</code><br/><sub><b>non-team:</b> single critiquer, interactive approve / decline / modify</sub><br/><sub><b>teams:</b> 4 adversarial reviewers debate (Pedagogy · Learner · Scope · Devil's)</sub>"]
-
-    p4["<b>Phase 4 · Branching</b> &nbsp;·&nbsp; <i>optional</i><br/><code>gm-agent-05-branching</code> &nbsp;<i>or</i>&nbsp; <code>-05a-…</code><br/><sub><b>non-team:</b> solo generator</sub><br/><sub><b>teams:</b> 1 teammate per Star · peer-messaged de-duplication</sub>"]
-
-    p5["<b>Phase 5 · Missions</b><br/><code>gm-agent-06-mission-builder</code> &nbsp;<i>or</i>&nbsp; <code>-06a-…</code><br/><sub><b>non-team:</b> parallel sub-agent per Star</sub><br/><sub><b>teams:</b> 1 teammate per Star · peer-messaged terminology &amp; style</sub>"]
-
-    p6["<b>Phase 6 · Mission Critique</b> &nbsp;·&nbsp; <i>optional, repeatable</i><br/><code>gm-agent-07-mission-critiquer</code> &nbsp;<i>or</i>&nbsp; <code>-07a-…</code><br/><sub><b>non-team:</b> interactive, per mission</sub><br/><sub><b>teams:</b> 4 cross-referencing reviewers (Technical · Learning Design · Engagement · Audience)</sub>"]
-
-    p7["<b>Phase 7 · Finalize</b> &nbsp;·&nbsp; <i>single session</i><br/>orchestrator transforms repo → <code>GALAXY_MAP.json</code>"]
-
-    p1 --> p2 --> p3 --> p4 --> p5 --> p6 --> p7
+    orch --> p1 --> p2 --> p3 --> p4 --> p5 --> p6 --> p7
     p3 -. "refine" .-> p2
     p6 -. "regenerate" .-> p5
 
