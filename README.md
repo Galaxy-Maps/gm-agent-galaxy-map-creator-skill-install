@@ -21,15 +21,15 @@ Both bundles run the same 7-phase pipeline. The orchestrator drives the workflow
 flowchart TB
     user(["👤 User"]) -->|"/galaxy-map"| orch
 
-    orch["🎯 <b>Orchestrator Skill</b><br/><sub>Coordinates the 7-phase workflow</sub>"]
+    orch["🎯 <b>01 · Orchestrator Skill</b><br/><sub>Coordinates the 7-phase workflow</sub>"]
 
-    p1["<b>Intent Skill</b><br/><sub>Captures curriculum intent via the 6-canvas framework</sub>"]
-    p2["<b>Curriculum Skill</b><br/><sub>Generates curriculum structure — Stars &amp; Missions</sub>"]
-    p3["<b>Curriculum Critiquer Skill</b><br/><sub>Reviews curriculum structure quality</sub>"]
-    p4["<b>Branching Skill</b><br/><sub>Generates optional side-quest branches</sub>"]
-    p5["<b>Mission Builder Skill</b><br/><sub>Builds rich HTML lesson content per mission</sub>"]
-    p6["<b>Mission Critiquer Skill</b><br/><sub>Reviews mission content quality</sub>"]
-    p7["<b>Finalize</b><br/><sub>Orchestrator compiles the repo into <code>GALAXY_MAP.json</code></sub>"]
+    p1["<b>02 · Intent Skill</b><br/><sub>Captures curriculum intent via the 6-canvas framework</sub>"]
+    p2["<b>03 · Curriculum Skill</b><br/><sub>Generates curriculum structure — Stars &amp; Missions</sub>"]
+    p3["<b>04 · Curriculum Critiquer Skill</b><br/><sub>Reviews curriculum structure quality</sub>"]
+    p4["<b>05 · Branching Skill</b><br/><sub>Generates optional side-quest branches</sub>"]
+    p5["<b>06 · Mission Builder Skill</b><br/><sub>Builds rich HTML lesson content per mission</sub>"]
+    p6["<b>07 · Mission Critiquer Skill</b><br/><sub>Reviews mission content quality</sub>"]
+    p7["<b>Finalize</b><br/><sub>Orchestrator (01) compiles the repo into <code>GALAXY_MAP.json</code></sub>"]
 
     orch --> p1 --> p2 --> p3 --> p4 --> p5 --> p6 --> p7
     p3 -. "refine" .-> p2
