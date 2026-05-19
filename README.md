@@ -1,13 +1,13 @@
 # Galaxy Maps — Skill Bundle Installer
 
-One-step installers for the [Galaxy Maps](https://github.com/Galaxy-Maps) curriculum-creation skill stack.
+One-step installers for [Galaxy Maps](https://galaxymaps.io) curriculum-creation stack using LLM Skills.
 
 Galaxy Maps ships in **two flavours**, each is a coordinated bundle of 7 Claude Code skills:
 
 | Bundle | What it does | Best for |
 |---|---|---|
-| **Non-team** | Sequential, single-agent workflow. One orchestrator drives each phase end-to-end. | Quick maps. Predictable cost. Older Claude Code versions. |
-| **Agent Teams** | Multi-agent workflow using Claude Code's Agent Teams. 7 selectable design teams (Dewey, Vygotsky, …) collaborate; 4 adversarial reviewers debate; 1 builder per star. | Higher-quality maps. Comparative design. Heavier token usage. |
+| **Non-team** | Sequential, single-agent workflow. One orchestrator drives each phase end-to-end. | Quick maps. Predictable cost. Results feel just as good if not better. |
+| **Agent Teams** | Multi-agent workflow using Claude Code's Agent Teams. 7 selectable design teams (Dewey, Vygotsky, …) collaborate; 4 adversarial reviewers debate; 1 builder per star. | Comparative design using education experts. Extremely heavy token usage. Mixed results, feels overly verbose. |
 
 Pick one — or install both side-by-side and decide per project.
 
