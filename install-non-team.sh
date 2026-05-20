@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Galaxy Maps — install the **non-team** skill bundle (7 skills)
+# Galaxy Maps — install the **non-team** skill bundle (8 skills)
 #
 # Usage:
 #   bash install-non-team.sh                # personal install → ~/.claude/skills/
@@ -22,6 +22,7 @@ REPOS=(
   gm-agent-04-curriculum-critiquer
   gm-agent-05-branching
   gm-agent-06-mission-builder
+  gm-agent-06a-youtube-scout
   gm-agent-07-mission-critiquer
 )
 

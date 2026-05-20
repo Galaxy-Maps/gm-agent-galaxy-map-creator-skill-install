@@ -105,7 +105,7 @@ curl -fsSL https://raw.githubusercontent.com/Galaxy-Maps/gm-agent-galaxy-map-cre
 irm https://raw.githubusercontent.com/Galaxy-Maps/gm-agent-galaxy-map-creator-skill-install/main/install-non-team.ps1 | iex
 ```
 
-Clones these 7 repos into `~/.claude/skills/`:
+Clones these 8 repos into `~/.claude/skills/`:
 
 - [`gm-agent-01-orchestrator`](https://github.com/Galaxy-Maps/gm-agent-01-orchestrator)
 - [`gm-agent-02-intent`](https://github.com/Galaxy-Maps/gm-agent-02-intent)
@@ -113,6 +113,7 @@ Clones these 7 repos into `~/.claude/skills/`:
 - [`gm-agent-04-curriculum-critiquer`](https://github.com/Galaxy-Maps/gm-agent-04-curriculum-critiquer)
 - [`gm-agent-05-branching`](https://github.com/Galaxy-Maps/gm-agent-05-branching)
 - [`gm-agent-06-mission-builder`](https://github.com/Galaxy-Maps/gm-agent-06-mission-builder)
+- [`gm-agent-06a-youtube-scout`](https://github.com/Galaxy-Maps/gm-agent-06a-youtube-scout) — dispatched by the Mission Builder to find LO-relevant videos
 - [`gm-agent-07-mission-critiquer`](https://github.com/Galaxy-Maps/gm-agent-07-mission-critiquer)
 
 Then in Claude Code: `/gm-agent-01-orchestrator` to start a Galaxy Map.
