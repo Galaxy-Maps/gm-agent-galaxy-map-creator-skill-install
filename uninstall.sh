@@ -19,6 +19,7 @@ ALL_REPOS=(
   gm-agent-05-branching
   gm-agent-05a-branching-with-agent-teams
   gm-agent-06-mission-builder
+  gm-agent-06a-youtube-scout
   gm-agent-06a-mission-builder-with-agent-teams
   gm-agent-07-mission-critiquer
   gm-agent-07a-mission-critiquer-with-agent-teams

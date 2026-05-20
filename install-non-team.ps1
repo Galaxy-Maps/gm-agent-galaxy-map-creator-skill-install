@@ -1,4 +1,4 @@
-# Galaxy Maps - install the non-team skill bundle (7 skills)
+# Galaxy Maps - install the non-team skill bundle (8 skills)
 #
 # Usage:
 #   .\install-non-team.ps1                # personal install -> %USERPROFILE%\.claude\skills\
@@ -27,6 +27,7 @@ $Repos = @(
     'gm-agent-04-curriculum-critiquer',
     'gm-agent-05-branching',
     'gm-agent-06-mission-builder',
+    'gm-agent-06a-youtube-scout',
     'gm-agent-07-mission-critiquer'
 )
 
